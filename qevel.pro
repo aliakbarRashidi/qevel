@@ -1,6 +1,12 @@
-TARGET = qevel
+TARGET   = qevel
 TEMPLATE = app
-SOURCES += sources/main_window.cpp \
-    sources/main.cpp
+
 HEADERS += sources/main_window.h
-FORMS += dialogs/main_window.ui
+SOURCES += sources/main_window.cpp \
+           sources/main.cpp
+FORMS   += dialogs/main_window.ui
+
+RESOURCES += resources/qevel.qrc
+
+TRANSLATIONS += translations/qevel_en.ts  \
+                translations/qevel_fr.ts
