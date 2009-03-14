@@ -16,35 +16,34 @@
 ** along with Qevel.  If not, see <http://www.gnu.org/licenses/>.
 **********************************************************************/
 
-#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+#ifndef ABOUTDIALOG_H
+#define ABOUTDIALOG_H
 
-#include <QtGui/QMainWindow>
+#include <QtCore/QString>
+#include <QtGui/QDialog>
 
-
-class AboutDialog;
 
 namespace Ui
 {
-    class MainWindow;
+    class AboutDialog;
 }
 
-class MainWindow : public QMainWindow
+class AboutDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    MainWindow (QWidget * parent = 0);
-    ~MainWindow ();
+    AboutDialog (QWidget * parent = 0);
+    ~AboutDialog ();
 
 private slots:
-    void showAboutDialog ();
-    void destroyAboutDialog ();
+    void showLicense ();
 
 private:
-    Ui::MainWindow * m_ui;
-    AboutDialog * m_aboutDialog;
+    const QString description () const;
+
+    Ui::AboutDialog * m_ui;
 
 };
 
-#endif // MAIN_WINDOW_H
+#endif // ABOUTDIALOG_H

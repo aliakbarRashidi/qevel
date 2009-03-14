@@ -1,12 +1,60 @@
+#######################################################################
+## This file is part of Qevel, a cross-platform file manager.
+## Copyright (C) 2009 qevel.org
+##
+## Qevel is free software: you can redistribute it and/or modify
+## it under the terms of the GNU General Public License as published by
+## the Free Software Foundation, either version 3 of the License, or
+## (at your option) any later version.
+##
+## Qevel is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+## GNU General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with Qevel. If not, see <http://www.gnu.org/licenses/>.
+#######################################################################
+
+LANGUAGES = en fr
+
+
 TARGET   = qevel
 TEMPLATE = app
 
-HEADERS += sources/main_window.h
-SOURCES += sources/main_window.cpp \
-           sources/main.cpp
-FORMS   += dialogs/main_window.ui
+HEADERS += sources/about_dialog.h   \
+           sources/main_window.h
+SOURCES += sources/about_dialog.cpp \
+           sources/main.cpp         \
+           sources/main_window.cpp
+
+FORMS += dialogs/about_dialog.ui \
+         dialogs/main_window.ui
 
 RESOURCES += resources/qevel.qrc
 
-TRANSLATIONS += translations/qevel_en.ts  \
-                translations/qevel_fr.ts
+for(language, LANGUAGES): TRANSLATIONS += translations/qevel_$${language}.ts
+
+
+# Copy COPYING file in resources directory.
+copying_resource.target   = "$${PWD}/resources/COPYING"
+copying_resource.commands = $$QMAKE_COPY "$${PWD}/COPYING" "$${PWD}/resources/COPYING"
+copying_resource.depends  = "$${PWD}/COPYING"
+QMAKE_EXTRA_TARGETS += copying_resource
+PRE_TARGETDEPS      += "$${PWD}/resources/COPYING"
+QMAKE_CLEAN         += "$${PWD}/resources/COPYING"
+
+# Create runtime translation files.
+for(language, LANGUAGES) {
+    ts_file = "$${PWD}/translations/qevel_$${language}.ts"
+    qm_file = "$${PWD}/resources/translations/qevel_$${language}.qm"
+    qm_target_name = update_$${language}_qm
+
+    eval($${qm_target_name}.target   = "$$qm_file")
+    eval($${qm_target_name}.commands = lrelease "$$ts_file" -qm "$$qm_file")
+    eval($${qm_target_name}.depends  = "$$ts_file")
+
+    QMAKE_EXTRA_TARGETS += $${qm_target_name}
+    PRE_TARGETDEPS      += $$qm_file
+    QMAKE_CLEAN         += $$qm_file
+}

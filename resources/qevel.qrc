@@ -2,5 +2,6 @@
     <qresource prefix="/" >
         <file>translations/qevel_en.qm</file>
         <file>translations/qevel_fr.qm</file>
+        <file>COPYING</file>
     </qresource>
 </RCC>
