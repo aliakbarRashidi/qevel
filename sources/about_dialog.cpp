@@ -25,8 +25,6 @@
 #include <QtGui/QTextBrowser>
 #include <QtGui/QVBoxLayout>
 
-#include <QtDebug>
-
 
 AboutDialog::AboutDialog (QWidget * parent /* = 0 */)
     : QDialog (parent), m_ui (new Ui::AboutDialog)

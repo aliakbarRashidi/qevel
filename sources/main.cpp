@@ -16,11 +16,12 @@
 ** along with Qevel. If not, see <http://www.gnu.org/licenses/>.
 **********************************************************************/
 
+#include "main_window.h"
+
 #include <QtCore/QLocale>
 #include <QtCore/QLibraryInfo>
 #include <QtCore/QTranslator>
 #include <QtGui/QApplication>
-#include "main_window.h"
 
 
 int main (int argc, char * argv [])

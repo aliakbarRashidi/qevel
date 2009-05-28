@@ -16,8 +16,8 @@
 ** along with Qevel. If not, see <http://www.gnu.org/licenses/>.
 **********************************************************************/
 
-#ifndef ABOUTDIALOG_H
-#define ABOUTDIALOG_H
+#ifndef ABOUT_DIALOG_H
+#define ABOUT_DIALOG_H
 
 #include <QtCore/QString>
 #include <QtGui/QDialog>
@@ -46,4 +46,4 @@ private:
 
 };
 
-#endif // ABOUTDIALOG_H
+#endif // ABOUT_DIALOG_H

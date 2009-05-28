@@ -22,11 +22,13 @@ LANGUAGES = en fr
 TARGET   = qevel
 TEMPLATE = app
 
-HEADERS += sources/about_dialog.h   \
-           sources/main_window.h
-SOURCES += sources/about_dialog.cpp \
-           sources/main.cpp         \
-           sources/main_window.cpp
+DEPENDPATH  += sources
+INCLUDEPATH += sources
+HEADERS += about_dialog.h   \
+           main_window.h
+SOURCES += about_dialog.cpp \
+           main.cpp         \
+           main_window.cpp
 
 FORMS += dialogs/about_dialog.ui \
          dialogs/main_window.ui
