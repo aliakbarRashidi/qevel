@@ -24,14 +24,22 @@ TEMPLATE = app
 
 DEPENDPATH  += sources
 INCLUDEPATH += sources
-HEADERS += about_dialog.h   \
-           main_window.h
-SOURCES += about_dialog.cpp \
-           main.cpp         \
-           main_window.cpp
+HEADERS += about_dialog.h            \
+           magic_number_registry.h   \
+           main_window.h             \
+           mime_type.h               \
+           mime_type_registry.h
+SOURCES += about_dialog.cpp          \
+           magic_number_registry.cpp \
+           main.cpp                  \
+           main_window.cpp           \
+           mime_type.cpp             \
+           mime_type_registry.cpp
 
 FORMS += dialogs/about_dialog.ui \
          dialogs/main_window.ui
+
+LIBS += -lmagic
 
 RESOURCES += resources/qevel.qrc
 
