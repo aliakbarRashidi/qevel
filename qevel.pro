@@ -28,13 +28,15 @@ HEADERS += about_dialog.h            \
            magic_number_registry.h   \
            main_window.h             \
            mime_type.h               \
-           mime_type_registry.h
+           mime_type_registry.h      \
+           version.h
 SOURCES += about_dialog.cpp          \
            magic_number_registry.cpp \
            main.cpp                  \
            main_window.cpp           \
            mime_type.cpp             \
-           mime_type_registry.cpp
+           mime_type_registry.cpp    \
+           version.cpp
 
 FORMS += dialogs/about_dialog.ui \
          dialogs/main_window.ui
